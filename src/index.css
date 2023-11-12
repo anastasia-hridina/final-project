@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('./fonts/open-sans-v36-latin-300.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('./fonts/open-sans-v36-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('./fonts/open-sans-v36-latin-500.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('./fonts/open-sans-v36-latin-600.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('./fonts/open-sans-v36-latin-700.woff2') format('woff2');
+}
