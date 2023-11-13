@@ -7,6 +7,7 @@ TodaysWeather.propTypes = {
 };
 
 function TodaysWeather({ title, items }) {
+    console.log(items)
     return (
         <div className="bg-slate-100 rounded-3xl p-7">
             <p className="text-gray-400 uppercase font-semibold tracking-wide pl-1 text-sm">{title}</p>

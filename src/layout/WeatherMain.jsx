@@ -8,9 +8,8 @@ import LocationWeather from "../components/LocationWeather";
 import InputMain from "../components/InputMain";
 
 function WeatherMain() {
-
     const [query, setQuery] = useState({ q: 'madrid' });
-    const [weather, setWeather] = useState({});
+    const [weather, setWeather] = useState();
 
     useEffect(() => {
         const fetchWeather = async () => {
@@ -45,7 +44,7 @@ function WeatherMain() {
 
             {
                 typeof weather != "undefined" ? (
-                    <div>
+                    <div >
                         <AirConditions weather={weather} />
                         <DailyForecast title="7-Day Forecast" weather={weather.daily} />
                     </div>) :
