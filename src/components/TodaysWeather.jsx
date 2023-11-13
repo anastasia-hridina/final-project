@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 TodaysWeather.propTypes = {
     title: PropTypes.string,
     items: PropTypes.array,
-    weather: PropTypes.object
 };
 
 function TodaysWeather({ title, items }) {
