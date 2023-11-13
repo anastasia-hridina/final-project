@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 TodaysWeather.propTypes = {
     title: PropTypes.string,
-    items: PropTypes.object,
+    items: PropTypes.array,
     weather: PropTypes.object
 };
 
-function TodaysWeather({ title, weather: { items } }) {
+function TodaysWeather({ title, items }) {
     return (
         <div className="bg-slate-100 rounded-3xl p-7">
             <p className="text-gray-400 uppercase font-semibold tracking-wide pl-1 text-sm">{title}</p>

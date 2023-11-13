@@ -1,15 +1,14 @@
 import { DateTime } from "luxon";
 
 const TOKEN = import.meta.env.VITE_APP_API_KEY;
-const BASE_URL = import.meta.env.VITE_APP_API_URL;
+const BASE_URL = 'https://api.openweathermap.org/data/3.0';
 
 const getWeatherData = (infoType, searchParams) => {
     const url = new URL(TOKEN + '/' + infoType);
     url.search = new URLSearchParams({ ...searchParams, appid: BASE_URL });
 
     return fetch(url)
-        .then((res) => res.json());
-
+        .then((res) => res.json())
 };
 
 const formatCurrentWeather = (data) => {

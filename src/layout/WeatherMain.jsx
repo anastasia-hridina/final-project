@@ -10,34 +10,36 @@ import InputMain from "../components/InputMain";
 function WeatherMain() {
 
     const [query, setQuery] = useState({ q: 'madrid' });
-    const [units, setUnits] = useState('metric');
     const [weather, setWeather] = useState({});
 
     useEffect(() => {
         const fetchWeather = async () => {
-            await getFormattedWeatherData({ ...query }).then((data) => {
-                setWeather(data);
-            });
-
+            await getFormattedWeatherData({ ...query })
+                .then((data) => {
+                    setWeather(data);
+                });
         };
 
         fetchWeather();
-    }, [query, units]);
+
+    }, [query]);
 
     return (
-        <section className="mt-9 h-full block relative">
+        <section className="mt-9 h-full relative">
             <SideNavigation />
 
             <div className="absolute left-36 top-0">
-                <InputMain setQuery={setQuery} units={units} setUnits={setUnits} />
+                <InputMain setQuery={setQuery} />
 
-                {typeof weather != "undefined" ? (
-                    <div>
-                        <LocationWeather weather={weather} />
-                        <TodaysWeather title="Today's Forecast" items={weather.hourly} />
-                    </div>) : (
-                    ""
-                )
+                {
+                    typeof weather != "undefined" ? (
+                        <div>
+                            <LocationWeather weather={weather} />
+                            <TodaysWeather title="Today's Forecast" items={weather.hourly} />
+                        </div>) :
+                        (
+                            ""
+                        )
                 }
             </div>
 
@@ -46,9 +48,10 @@ function WeatherMain() {
                     <div>
                         <AirConditions weather={weather} />
                         <DailyForecast title="7-Day Forecast" weather={weather.daily} />
-                    </div>) : (
-                    ""
-                )
+                    </div>) :
+                    (
+                        ""
+                    )
             }
         </section >
     );

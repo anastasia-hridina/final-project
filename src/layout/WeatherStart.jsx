@@ -4,7 +4,6 @@ import WeatherMain from './WeatherMain';
 import { Link } from 'react-router-dom';
 
 function WeatherStart() {
-
     return (
         <main className='h-full'>
             <section className="pt-9">
