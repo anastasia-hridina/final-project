@@ -1,0 +1,27 @@
+import { iconUrlFromCode } from '../../api/weatherApi';
+import PropTypes from 'prop-types';
+
+CityListForecast.propTypes = {
+    weather: PropTypes.object
+};
+
+function CityListForecast({ weather: { name, country, description, icon, temp } }) {
+    return (
+        <div>
+            <div className='flex justify-center items-center gap-36'>
+                <div>
+                    <h3 className='text-4xl font-bold tracking-wide'>{`${name}, ${country} `}</h3>
+                    <p className='pb-5 pt-1 text-neutral-400 text-sm tracking-wide'>{description}</p>
+                    <span className='text-6xl font-bold'>{temp.toFixed()}°</span>
+                </div>
+                <img className='w-28' src={iconUrlFromCode(icon)} alt="" />
+            </div>
+            <div className='my-8 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-300 to-transparent opacity-20 dark:opacity-100'></div>
+
+
+        </div>
+
+    );
+}
+
+export default CityListForecast;

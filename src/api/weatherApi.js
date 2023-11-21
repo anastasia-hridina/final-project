@@ -1,7 +1,7 @@
 import { DateTime } from "luxon";
 
-const TOKEN = import.meta.env.VITE_APP_API_KEY;
-const BASE_URL = 'https://api.openweathermap.org/data/3.0';
+const TOKEN = '34c683904c5dc90526e4b70dc07e16bf';
+const BASE_URL = 'https://api.openweathermap.org/data/2.5';
 
 const getWeatherData = (infoType, searchParams) => {
     const url = new URL(BASE_URL + '/' + infoType);
@@ -14,7 +14,7 @@ const getWeatherData = (infoType, searchParams) => {
 const formatCurrentWeather = (data) => {
     const {
         coord: { lat, lon },
-        main: { temp, feels_like, temp_min, temp_max, humidity, pressure },
+        main: { temp, feels_like, day, night, humidity, pressure },
         name,
         dt,
         sys: { country, sunrise, sunset },
@@ -23,31 +23,33 @@ const formatCurrentWeather = (data) => {
     } = data;
 
 
-    const { main: details, icon } = weather[0];
+    const { main: description, icon } = weather[0];
 
     return {
-        lat, lon, temp, feels_like, temp_min, temp_max, humidity, pressure,
-        name, dt, country, sunrise, sunset, details, icon, weather, speed
+        lat, lon, temp, feels_like, day, night, humidity, pressure,
+        name, dt, country, sunrise, sunset, description, icon, weather, speed
     };
 };
 
 const formatForecastWeather = (data) => {
     let { timezone, daily, hourly } = data;
-    daily = daily.slice(1, 6).map(d => {
+    daily = daily.slice(1, 8).map(d => {
         return {
             title: formatToLocalTime(d.dt, timezone, 'ccc'),
             temp: d.temp,
+            description: d.weather[0].description,
             icon: d.weather[0].icon
         };
     });
 
-    hourly = hourly.slice(1, 6).map(d => {
+    hourly = hourly.slice(1, 8).map(d => {
         return {
             title: formatToLocalTime(d.dt, timezone, 'hh:mm a'),
             temp: d.temp,
             icon: d.weather[0].icon
         };
     });
+
     return { timezone, daily, hourly };
 };
 
@@ -79,4 +81,4 @@ const iconUrlFromCode = (code) => `https://openweathermap.org/img/wn/${code}@2x.
 
 export default getFormattedWeatherData;
 
-export { formatToLocalTime, iconUrlFromCode };
+export { formatToLocalTime, iconUrlFromCode, TOKEN, BASE_URL };
