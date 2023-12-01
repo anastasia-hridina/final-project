@@ -6,8 +6,7 @@ import { useEffect, useState } from "react";
 import TodaysWeather from "../components/weatherMain/TodaysWeather";
 import LocationWeather from "../components/weatherMain/LocationWeather";
 import Search from "../components/Search";
-import { BASE_URL } from "../api/weatherApi";
-import { TOKEN } from "../api/weatherApi";
+
 
 function WeatherMain() {
     const [query, setQuery] = useState({ q: 'Kyiv' });
@@ -46,25 +45,15 @@ function WeatherMain() {
 
 
     const handleOnSearchChange = (searchData) => {
-        const [lat, lon] = searchData.value.split('');
-
-        const currentWeatherFetch = fetch(`${BASE_URL}/weather?lat=${lat}&lon=${lon}&appid=${TOKEN}`);
-
-        Promise.all([currentWeatherFetch])
-            .then(async (response) => {
-                const weatherResponse = await response[0].json();
-
-                setWeather({ city: searchData.label, ...weatherResponse });
-            })
-            .catch((err) => console.log(err));
+        setQuery({ q: searchData.label });
     }
-    console.log(weather);
 
 
     return (
-        <section className="mt-9 flex gap-5 max-w-[1400px] mx-auto p-3">
+        <section className="flex gap-5 max-w-[1400px] mx-auto p-5 max-[992px]:flex-col max-[992px]:mb-20">
             <SideNavigation />
-            <div className=" w-[55%] h-full">
+
+            <div className=" w-[55%] h-full max-[992px]:w-full">
 
                 <Search onSearchChange={handleOnSearchChange} />
 
@@ -81,7 +70,7 @@ function WeatherMain() {
 
             {
                 weather && (
-                    <div className="w-[40%]">
+                    <div className="w-[40%] max-[992px]:w-full">
                         <DailyForecast title="7-Day Forecast" items={weather.daily} />
                     </div>
                 )

@@ -17,7 +17,7 @@ function TodaysForecastCities({ title, items }) {
                         <div key={item.title} className='flex flex-col gap-4 items-center'>
                             <p className='text-neutral-400 font-bold text-sm whitespace-nowrap'>{item.title}</p>
                             <img className='w-10 mx-auto' src={iconUrlFromCode(item.icon)} alt="" />
-                            <span className='font-bold text-lg text-center'>{item.temp.toFixed()}°</span>
+                            <span className='font-bold text-lg text-center'>{Math.ceil(item.temp)}°</span>
                         </div>
                     )
                 })}

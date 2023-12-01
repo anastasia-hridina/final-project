@@ -16,7 +16,7 @@ function TodaysWeather({ title, items }) {
                         <li key={item.title} className="flex flex-col gap-4">
                             <p className="text-white text-center whitespace-nowrap font-semibold tracking-wide text-sm">{item.title}</p>
                             <img className="w-12 mx-auto" src={iconUrlFromCode(item.icon)} alt="" />
-                            <p className="font-bold text-white text-center text-lg">{`${item.temp.toFixed()}°`}</p>
+                            <p className="font-bold text-white text-center text-lg">{`${Math.ceil(item.temp)}°`}</p>
                         </li>
                     )
                 })}

@@ -18,7 +18,7 @@ function DailyForecastCities({ title, items }) {
                             <img className="w-10" src={iconUrlFromCode(item.icon)} alt="" />
                             <span className='font-bold'>{item.description}</span>
                         </div>
-                        <span className='mr-10 font-bold'>{item.temp.day.toFixed()}°<span className='font-normal text-neutral-400'>/{item.temp.night.toFixed()}°</span></span>
+                        <span className='mr-10 font-bold'>{Math.ceil(item.temp.max)}°<span className='font-normal text-neutral-400'>/{Math.ceil(item.temp.min)}°</span></span>
                     </div>
                 )
             })}
