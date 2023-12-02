@@ -68,6 +68,7 @@ function WeatherCities() {
                                             weather={addCity}
                                             key={addCity.name}
                                             removeHandle={removeCity}
+                                            addCityItem={addCityItem.name}
                                         />
                                     ) :
                                     <p className="text-center text-xl tracking-wider uppercase font-bold text-slate-400">No cities added</p>
