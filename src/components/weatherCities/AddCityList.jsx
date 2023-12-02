@@ -6,10 +6,9 @@ import { TiDelete } from "react-icons/ti";
 AddCityList.propTypes = {
     weather: PropTypes.object,
     removeHandle: PropTypes.func,
-    addCityItem: PropTypes.object
 }
 
-function AddCityList({ weather: { name, country, icon, temp, dt, timezone }, removeHandle, addCityItem }) {
+function AddCityList({ weather: { name, country, icon, temp, dt, timezone }, removeHandle }) {
 
     return (
         <ul>
@@ -20,7 +19,7 @@ function AddCityList({ weather: { name, country, icon, temp, dt, timezone }, rem
                     <span className='text-cyan-100 font-medium text-lg'>{formatToLocalTime(dt, timezone)}</span>
                 </div>
                 <span className='ml-auto mb-auto text-cyan-100 text-4xl active:text-gray-400'>{Math.ceil(temp)}°</span>
-                <button onClick={() => { removeHandle(addCityItem.name); }} className='absolute top-1 left-1'><TiDelete size={33} className=' fill-sky-100' /></button>
+                <button onClick={() => { removeHandle(name); }} className='absolute top-1 right-1'><TiDelete size={33} className='opacity-0 hover:opacity-100 fill-sky-100 max-[992px]:opacity-100' /></button>
             </li>
         </ul>
     );

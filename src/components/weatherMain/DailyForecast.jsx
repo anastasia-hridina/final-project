@@ -13,7 +13,7 @@ function DailyForecast({ title, items }) {
             <ul className='flex flex-col gap-4'>
                 {items.map((item) => {
                     return (
-                        <li key={item.title} className='flex justify-between items-center gap-12 mt-8'>
+                        <li key={item.title} className='flex justify-between items-center gap-12 mt-8 max-[366px]:flex-col max-[366px]:gap-2'>
                             <p className='text-cyan-50 tracking-wide text-sm'>{item.title}</p>
                             <div className='flex items-center gap-4 max-[1080px]:flex max-[1080px]:flex-col max-[1080px]:gap-0 max-[1080px]:justify-center max-[992px]:flex-row max-[470px]:flex-col'>
                                 <img className='w-12' src={iconUrlFromCode(item.icon)} alt="" />

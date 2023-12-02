@@ -33,9 +33,10 @@ export default function useAddCity() {
         window.localStorage.setItem(weatherLocalStorageKey, JSON.stringify(addCityItem))
     }, [addCityItem]);
 
+
     useEffect(() => {
-        window.localStorage.removeItem(weatherLocalStorageKey)
+        window.localStorage.removeItem(weatherLocalStorageKey);
     }, [])
 
-    return [query, setQuery, addCity, addCityItem, setAddCityItem, removeCity]
+    return [query, setQuery, addCity, addCityItem, removeCity]
 }

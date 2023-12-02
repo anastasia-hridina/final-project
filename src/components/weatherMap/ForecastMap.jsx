@@ -19,7 +19,8 @@ const tileLayerUrl = `https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.p
 
 const ForecastMap = () => {
     return (
-        <div className='map-container z-0'>
+        <div className='map-container z-0 w-full p-4 pt-2'>
+            <h2 className='text-3xl font-bold pb-3 text-[#76AED5]'>Global Weather Map</h2>
             <MapContainer id='map' center={position} zoom={6} scrollWheelZoom={false}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

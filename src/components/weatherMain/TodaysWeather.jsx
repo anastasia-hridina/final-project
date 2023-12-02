@@ -10,7 +10,7 @@ function TodaysWeather({ title, items }) {
     return (
         <div className="bg-[#95c2e1] rounded-3xl p-7">
             <p className="text-cyan-100 uppercase font-semibold tracking-wide pl-1 text-sm">{title}</p>
-            <ul className="pt-5 flex gap-8 justify-center overflow-auto">
+            <ul className="pt-5 flex gap-8 justify-center overflow-auto -mb-3 pb-3">
                 {items.map((item) => {
                     return (
                         <li key={item.title} className="flex flex-col gap-4">

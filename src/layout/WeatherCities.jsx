@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Search from "../components/Search";
 import SideNavigation from "../components/SideNavigation";
 import CityList from "../components/weatherCities/CityList";
-import CityListForecast from "../components/weatherCities/CityListForecast";
+import CurrentCityForecast from "../components/weatherCities/CurrentCityForecast";
 import getFormattedWeatherData from "../api/weatherApi";
 import TodaysForecastCities from "../components/weatherCities/TodaysForecastCities";
 import DailyForecastCities from "../components/weatherCities/DailyForecastCities";
@@ -68,7 +68,6 @@ function WeatherCities() {
                                             weather={addCity}
                                             key={addCity.name}
                                             removeHandle={removeCity}
-                                            addCityItem={addCityItem.name}
                                         />
                                     ) :
                                     <p className="text-center text-xl tracking-wider uppercase font-bold text-slate-400">No cities added</p>
@@ -84,7 +83,7 @@ function WeatherCities() {
                     weather &&
                     (
                         <div>
-                            <CityListForecast weather={weather} />
+                            <CurrentCityForecast weather={weather} />
                             <TodaysForecastCities items={weather.hourly} title="Today's Forecast" />
                             <DailyForecastCities items={weather.daily} title="3-Day Forecast" />
                         </div>

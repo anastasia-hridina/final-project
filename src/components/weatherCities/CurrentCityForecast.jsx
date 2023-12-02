@@ -1,11 +1,11 @@
 import { iconUrlFromCode } from '../../api/weatherApi';
 import PropTypes from 'prop-types';
 
-CityListForecast.propTypes = {
+CurrentCityForecast.propTypes = {
     weather: PropTypes.object
 };
 
-function CityListForecast({ weather: { name, country, description, icon, temp } }) {
+function CurrentCityForecast({ weather: { name, country, description, icon, temp } }) {
     return (
         <div>
             <div className='flex justify-center items-center gap-32'>
@@ -24,4 +24,4 @@ function CityListForecast({ weather: { name, country, description, icon, temp } 
     );
 }
 
-export default CityListForecast;
+export default CurrentCityForecast;

@@ -11,7 +11,7 @@ function TodaysForecastCities({ title, items }) {
     return (
         <div>
             <p className='text-sm uppercase font-bold text-neutral-400 tracking-wide pb-4'>{title}</p>
-            <div className='flex justify-center gap-10 overflow-auto'>
+            <div className='flex justify-center gap-10 overflow-auto -mb-3 pb-3'>
                 {items.slice(0, 4).map((item) => {
                     return (
                         <div key={item.title} className='flex flex-col gap-4 items-center'>
