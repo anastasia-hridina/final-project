@@ -10,7 +10,7 @@ function DailyForecastCities({ title, items }) {
     return (
         <div className='flex flex-col gap-6'>
             <p className='pb-1 text-neutral-400 uppercase font-bold text-sm tracking-wide'>{title}</p>
-            {items.slice(0, 4).map((item) => {
+            {items.slice(0, 3).map((item) => {
                 return (
                     <div key={item.title} className='flex justify-between items-center'>
                         <p className='text-neutral-400 text-sm'>{item.title}</p>
